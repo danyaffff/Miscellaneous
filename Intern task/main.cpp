@@ -47,10 +47,8 @@ int main() {
             if (std::regex_match(word.c_str(), result, regular)) {
                 number = stoi(result[2]);
 
-                if (result[1] == "*") {
-                    if (placed[number] == "") {
-                        throw Exception("Не введен какой-то обязательный параметр!");
-                    }
+                if (result[1] == "*" && placed[number] == "") {
+                    throw Exception("Не введен какой-то обязательный параметр!");
                 }
                 
                 word = placed[number] + std::string(result[3]);
